@@ -1,4 +1,9 @@
 
+First create crm-app folder and then inside backend and then creat first laravel project using command in backend then after that add dockerfile same do with frontend
+RUN composer create-project laravel/laravel:^9.0 .(For sepecific version)
+RUN npx create-react-app@5.0.1 my-app(For specific version)
+
+
 Single command to start all services (docker-compose up)
 
 run docker-compose up -d --build before creating project n laravel

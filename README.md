@@ -185,3 +185,10 @@ docker ps
 docker stop <container-id>
 
 fe url http://localhost:3000/ because it created using create react app if created using vite then it will 5173
+
+JWT setup
+
+composer require tymon/jwt-auth
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan jwt:secret
+

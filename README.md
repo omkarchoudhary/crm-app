@@ -1,3 +1,5 @@
+be url -- http://localhost:8000/api/leads
+fe url --http://localhost:3000/
 First create crm-app folder and then inside it create backend folder and then create first laravel project using command in backend then after that add dockerfile file same do with frontend
 RUN composer create-project laravel/laravel:^9.0 .(For sepecific version)
 RUN npx create-react-app@5.0.1 my-app(For specific version)

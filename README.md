@@ -1,28 +1,22 @@
-
-First create crm-app folder and then inside backend and then creat first laravel project using command in backend then after that add dockerfile same do with frontend
+First create crm-app folder and then inside it create backend folder and then create first laravel project using command in backend then after that add dockerfile file same do with frontend
 RUN composer create-project laravel/laravel:^9.0 .(For sepecific version)
 RUN npx create-react-app@5.0.1 my-app(For specific version)
 
-
 Single command to start all services (docker-compose up)
 
-run docker-compose up -d --build before creating project n laravel
+run docker-compose up -d --build before creating project in laravel
 
 for timeout issue docker-compose run --rm app composer config --global process-timeout 1800
 
-
 docker-compose exec app php artisan route:list
-
 docker-compose down
 docker-compose exec app php artisan serve --host=0.0.0.0 --port=8000
-
 
 docker-compose exec app php artisan route:clear
 docker-compose exec app php artisan config:clear
 docker-compose exec app php artisan cache:clear
 
 check docker logs docker-compose logs app
-
 
 postman collection 
 
@@ -125,13 +119,9 @@ postman collection
 }
 
 
-download anyone pgAdmin
+download anyone pgAdmin or DBeaver
 
-DBeaver
-
-TablePlus
-
-and use below
+and use below cred
 
 Host: localhost
 
@@ -142,8 +132,6 @@ Username: user
 Password: as per your .env
 
 Database: crm
-
-
 
 DB_CONNECTION=pgsql
 DB_HOST=db
@@ -173,10 +161,6 @@ Download the .jar from the above link.
 
 Click Add File, select the .jar you downloaded.
 
-
-
-
-
 Save & Retry your connection.
 
 if to stope any port used by anotehr 
@@ -191,4 +175,29 @@ JWT setup
 composer require tymon/jwt-auth
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 php artisan jwt:secret
+
+docker run --name mysql-temp -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8
+
+mysql connection error 
+Option 2: Add Parameters in JDBC URL
+When creating or editing the MySQL connection in DBeaver,
+
+Find the "URL" field, which looks like this:
+
+bash
+Copy
+Edit
+jdbc:mysql://localhost:3306/sample_db
+Modify it to:
+
+bash
+Copy
+Edit
+jdbc:mysql://localhost:3306/sample_db?allowPublicKeyRetrieval=true&useSSL=false
+docker cp "C:\Users\OMKAR\Downloads\sample.sql" mysql-temp:/sample.sql
+
+docker exec -it mysql-temp mysql -uroot -proot -e "CREATE DATABASE sample_db"
+docker exec -i mysql-temp mysql -uroot -proot sample_db < "C:\Users\OMKAR\Downloads\sample.sql"
+
+
 

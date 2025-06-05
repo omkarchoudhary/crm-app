@@ -19,6 +19,8 @@ docker-compose exec app php artisan config:clear
 docker-compose exec app php artisan cache:clear
 
 check docker logs docker-compose logs app
+docker logs crm-backend
+
 
 postman collection 
 
